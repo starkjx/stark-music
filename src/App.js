@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        hello react!!!!!
+        hello react!!!from stark.
       </div>
     );
   }

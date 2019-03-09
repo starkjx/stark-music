@@ -2,6 +2,7 @@
   "name": "stark-music",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://starkjx.github.io/stark-music/build",
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -21,6 +22,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "homepage":"https://github.com/starkjx/stark-music.git/build"
+  ]
 }

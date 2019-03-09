@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/starkjx/stark-music.git/build/precache-manifest.3154e1e69adfcc1bb548a89c0e07ee2a.js"
+  "/stark-music/build/precache-manifest.c4132bcd29325ebf1690108e32a35ffe.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/starkjx/stark-music.git/build/index.html", {
+workbox.routing.registerNavigationRoute("/stark-music/build/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

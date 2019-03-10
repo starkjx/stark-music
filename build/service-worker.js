@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/stark-music/build/precache-manifest.c4132bcd29325ebf1690108e32a35ffe.js"
+  "/stark-music/build/precache-manifest.05feabc1a72f28311a51ab508cc12e53.js"
 );
 
 workbox.clientsClaim();

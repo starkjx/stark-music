@@ -1,33 +1,121 @@
-.App {
+html,body,section,.App{
+  height: 100%;
+  overflow: hidden;
+}
+
+.layout{
+  margin: 0 auto;
+  width: 600px;
+}
+
+@media (min-width: 700px) {
+  .layout {
+    width: 600px;
+  }
+}
+@media (min-width: 900px) {
+  .layout {
+    width: 800px;
+  }
+}
+@media (min-width: 1000px) {
+  .layout {
+    width: 900px;
+  }
+}
+@media (min-width: 1200px) {
+  .layout {
+    width: 1100px;
+  }
+}
+
+#page-music main{
+  height: calc(100% - 24vh);
+  padding-top: 12vh;
+}
+
+.background{
+  position: absolute;
+  z-index: -1;
+  left: -10px;
+  top: -10px;
+  bottom: -10px;
+  right: -10px;
+  background: #444;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(4px);
+}
+
+.background:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+footer{
+  height: 24vh;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 -.25vh .25vh .25vh rgba(255, 255, 255, 0.2);
+}
+
+footer>.layout{
+  position: relative;
+}
+
+footer .music-box{
+  height: 24vh;
+  overflow: hidden;
+  position: relative;
+}
+
+footer ul{
+  position: absolute;
+  left: 0;
+}
+
+footer .music-box li{
+  float: left;
+  margin-top: 1vh;
+  width: 20vh;
+  height: 20vh;
+  margin: 2vh 2vh 0 2vh;
   text-align: center;
+  cursor: pointer;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+footer li.active{
+  box-shadow: 0 0 .5vh .5vh rgba(255, 255, 255, 0.8);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+footer .iconfont{
+  position: absolute;
+  top: 4vh;
+  font-size: 8vh;
+  opacity: 0;
+  cursor: pointer;
+  transition: all .4s;
 }
 
-.App-link {
-  color: #61dafb;
+footer .icon-back{
+  left: -9vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer .icon-right{
+  right: -9vh;
+}
+
+footer:hover .iconfont{
+  opacity: 1;
+}
+
+footer .iconfont:hover{
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 9vh;
 }

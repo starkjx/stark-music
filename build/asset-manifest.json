@@ -1,13 +1,15 @@
 {
-  "main.css": "/stark-music/build/static/css/main.ae605f3c.chunk.css",
-  "main.js": "/stark-music/build/static/js/main.64001827.chunk.js",
-  "main.js.map": "/stark-music/build/static/js/main.64001827.chunk.js.map",
+  "main.css": "/stark-music/build/static/css/main.62dbbafc.chunk.css",
+  "main.js": "/stark-music/build/static/js/main.14791d58.chunk.js",
+  "main.js.map": "/stark-music/build/static/js/main.14791d58.chunk.js.map",
   "runtime~main.js": "/stark-music/build/static/js/runtime~main.c4c95ce7.js",
   "runtime~main.js.map": "/stark-music/build/static/js/runtime~main.c4c95ce7.js.map",
-  "static/js/2.b19c2b74.chunk.js": "/stark-music/build/static/js/2.b19c2b74.chunk.js",
-  "static/js/2.b19c2b74.chunk.js.map": "/stark-music/build/static/js/2.b19c2b74.chunk.js.map",
+  "static/css/2.45556ab8.chunk.css": "/stark-music/build/static/css/2.45556ab8.chunk.css",
+  "static/js/2.897a8e07.chunk.js": "/stark-music/build/static/js/2.897a8e07.chunk.js",
+  "static/js/2.897a8e07.chunk.js.map": "/stark-music/build/static/js/2.897a8e07.chunk.js.map",
   "index.html": "/stark-music/build/index.html",
-  "precache-manifest.c4132bcd29325ebf1690108e32a35ffe.js": "/stark-music/build/precache-manifest.c4132bcd29325ebf1690108e32a35ffe.js",
+  "precache-manifest.05feabc1a72f28311a51ab508cc12e53.js": "/stark-music/build/precache-manifest.05feabc1a72f28311a51ab508cc12e53.js",
   "service-worker.js": "/stark-music/build/service-worker.js",
-  "static/css/main.ae605f3c.chunk.css.map": "/stark-music/build/static/css/main.ae605f3c.chunk.css.map"
+  "static/css/2.45556ab8.chunk.css.map": "/stark-music/build/static/css/2.45556ab8.chunk.css.map",
+  "static/css/main.62dbbafc.chunk.css.map": "/stark-music/build/static/css/main.62dbbafc.chunk.css.map"
 }

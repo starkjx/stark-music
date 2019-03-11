@@ -17,7 +17,8 @@ class App extends Component {
       isToButtom: false,
       isToStart: true,
       isLoadAnimate: false,
-      song: []
+      song: [],
+      lyric: {}
     }
     this.audio = new Audio()
     this.audio.autoplay = true
@@ -108,11 +109,12 @@ class App extends Component {
         let stateCopy = JSON.parse(JSON.stringify(_this.state))
         stateCopy.song = ret.song[0]
         _this.setState(stateCopy)
+        _this.audio.src = ret.song[0].url
+        $('.music-panel figure').css('background-image', 'url(' + ret.song[0].picture + ')')
+        $('.background').css('background-image','url(' + ret.song[0].picture + ')');
         //_this.play(ret.song[0]);
+        _this.loadLyric(ret.song[0].sid)
     });
-    _this.audio.src = this.state.song.url
-    $('.music-panel figure').css('background-image', 'url(' + this.state.song.picture + ')')
-    $('.background').css('background-image','url(' + this.state.song.picture + ')');
   }
   clickPlay(){
     var _this = this
@@ -125,6 +127,46 @@ class App extends Component {
       _this.audio.play()
     }
   }
+  playNext(){
+    this.playSong()
+  }
+  updateStatue(){
+    var min = Math.floor(this.audio.currentTime/60);
+    var sec = Math.floor(this.audio.currentTime%60) + '';
+    sec = sec.length ===2? sec : '0' + sec;
+    $('.detail .current-time').text(min + ':' + sec);
+    $('.detail .bar-progress').css('width',this.audio.currentTime/this.audio.duration*100 + '%');
+    var line = this.state.lyric['0' + min + ':' + sec]
+    if(line){
+      $('.detail .lyric p').text(line).boomText('rollIn');
+    }
+  }
+  changeTime(e){
+    var percent = (e.clientX - e.currentTarget.getBoundingClientRect().x) /
+    parseInt(getComputedStyle(e.currentTarget).width)
+    this.audio.currentTime = percent * this.audio.duration
+  }
+  loadLyric(sid){
+    var _this = this
+    $.getJSON('https://jirenguapi.applinzi.com/fm/getLyric.php',{sid: sid})
+    .done(function(ret){
+     //  console.log('lyric',ret);
+     //  var lyric = ret.lyric;
+      var lyricObj = {};
+     ret.lyric.split('\n').forEach(function(line){
+       var times = line.match(/\d{2}:\d{2}/g);
+       if(Array.isArray(times)){
+         times.forEach(function(time){
+           lyricObj[time] = line.replace(/\[.+?\]/g,'');
+         });
+       }
+     });
+     // console.log(lyricObj);
+     _this.setState({
+       lyric: lyricObj
+     })
+    })
+  }
   render() {
     let covers = this.state.channels
     .map((item,index) => {
@@ -134,13 +176,31 @@ class App extends Component {
         </li>
       )
     })
+    var _this = this
+    this.audio.addEventListener('play',function(){
+      //console.log('play');
+      clearInterval(_this.statusClock);
+      _this.statusClock = setInterval(function(){
+        _this.updateStatue();
+      },1000);
+    });
+    this.audio.addEventListener('pause',function(){
+      clearInterval(_this.statusClock);
+      //console.log('pause');
+    });
+    this.audio.addEventListener('ended',function(){
+      //console.log('ended');
+      _this.playSong();
+    });
     return (
       <div className="App">
         <section id="page-music">
           <Music chId={this.state.channelId}
             chName={this.state.channelName}
             song={this.state.song}
-            onclickPlay={this.clickPlay.bind(this)}/>
+            onclickPlay={this.clickPlay.bind(this)}
+            onNext={this.playNext.bind(this)}
+            onChangeTime={this.changeTime.bind(this)}/>
           <footer>
             <div className="layout">
               <span className="iconfont icon-back" onClick={this.clickLeft.bind(this)}></span>
@@ -157,6 +217,28 @@ class App extends Component {
       </div>
     );
   }
+}
+
+$.fn.boomText = function(type){
+  type = type || 'rollIn';
+  this.html(function(){
+    var arr = $(this).text().split('')
+              .map(function(word){
+                return '<span class="boomText">' + word + '</span>';
+              });
+    return arr.join('');
+  });
+
+  var index = 0;
+  var $boomTexts = $(this).find('span');
+  var clock = setInterval(function(){
+    $boomTexts.eq(index).addClass('animated '+ type);
+    index++;
+    if(index >= $boomTexts.length){
+      clearInterval(clock);
+    }
+  },200);
+
 }
 
 export default App;

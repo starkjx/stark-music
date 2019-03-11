@@ -1,14 +1,14 @@
 {
   "main.css": "/stark-music/build/static/css/main.62dbbafc.chunk.css",
-  "main.js": "/stark-music/build/static/js/main.14791d58.chunk.js",
-  "main.js.map": "/stark-music/build/static/js/main.14791d58.chunk.js.map",
+  "main.js": "/stark-music/build/static/js/main.1f042251.chunk.js",
+  "main.js.map": "/stark-music/build/static/js/main.1f042251.chunk.js.map",
   "runtime~main.js": "/stark-music/build/static/js/runtime~main.c4c95ce7.js",
   "runtime~main.js.map": "/stark-music/build/static/js/runtime~main.c4c95ce7.js.map",
   "static/css/2.45556ab8.chunk.css": "/stark-music/build/static/css/2.45556ab8.chunk.css",
   "static/js/2.897a8e07.chunk.js": "/stark-music/build/static/js/2.897a8e07.chunk.js",
   "static/js/2.897a8e07.chunk.js.map": "/stark-music/build/static/js/2.897a8e07.chunk.js.map",
   "index.html": "/stark-music/build/index.html",
-  "precache-manifest.05feabc1a72f28311a51ab508cc12e53.js": "/stark-music/build/precache-manifest.05feabc1a72f28311a51ab508cc12e53.js",
+  "precache-manifest.99603566f51963d2c71b85830c592a03.js": "/stark-music/build/precache-manifest.99603566f51963d2c71b85830c592a03.js",
   "service-worker.js": "/stark-music/build/service-worker.js",
   "static/css/2.45556ab8.chunk.css.map": "/stark-music/build/static/css/2.45556ab8.chunk.css.map",
   "static/css/main.62dbbafc.chunk.css.map": "/stark-music/build/static/css/main.62dbbafc.chunk.css.map"

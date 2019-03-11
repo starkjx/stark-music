@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './Music.css'
-// import $ from 'jquery'
+import $ from 'jquery'
 
 export default class Music extends Component{
   constructor(props){
@@ -9,16 +9,23 @@ export default class Music extends Component{
       
     }
   }
-
+  toggleCollect(){
+    var $btnCollect = $('.btn-collect')
+    if($btnCollect.hasClass('active')){
+      $btnCollect.removeClass('active')
+    }else{
+      $btnCollect.addClass('active')
+    }
+  }
   render(){
     return(
       <main className='layout'>
         <div className="music-panel">
           <figure></figure>
           <div className="actions clearfix">
-            <span className="btn-collect iconfont icon-like"></span>
+            <span className="btn-collect iconfont icon-like"onClick={this.toggleCollect.bind(this)}></span>
             <span className="btn-play iconfont icon-play" onClick={this.props.onclickPlay}></span>
-            <span className="btn-next iconfont icon-next"></span>
+            <span className="btn-next iconfont icon-next" onClick={this.props.onNext}></span>
           </div>
         </div>
         <div className="detail">
@@ -30,7 +37,7 @@ export default class Music extends Component{
             <li><span className="iconfont icon-appreciate">12</span></li>
           </ul>
           <div className="time-area">
-            <div className="bar">
+            <div className="bar" onClick={this.props.onChangeTime}>
               <div className="bar-progress"></div>
             </div>
             <div className="current-time">0:00</div>
